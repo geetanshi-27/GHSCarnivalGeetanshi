@@ -19,7 +19,7 @@ const LandingPage = () => {
         style={{
           backgroundImage: "url(/Background.png)",
           backgroundSize: "440px 956px",
-          backgroundRepeat: "no-repeat",
+          backgroundRepeat: "repeat",
           backgroundPosition: "top center",
         }}
       >
@@ -33,10 +33,25 @@ const LandingPage = () => {
             <img
               src="/ghs-carnival-logo.png"
               alt="GHS Carnival"
-              className="h-[71px] object-contain"
+              className="h-[100px] object-contain"
+              style={{ marginTop: "30vh" }}
             />
           </div>
 
+
+          <div 
+          style={{
+            display : "flex",
+            justifyContent: "center"
+          }}>
+          <h1
+            className="text-[#232165]"
+            style={{ fontFamily: "'Kdam thmor pro', sans-serif", fontSize: "20px", paddingBottom: "50vh", display : "flex" , textAlign:"center", fontWeight: 500 }}
+
+            >
+              Games, Glory & Hostel Stories
+            </h1>
+          </div>
           {/* HERO IMAGE */}
           <div className="mt-[20px] flex justify-center">
             <img
