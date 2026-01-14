@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../components/NavBar";
 import {
   FaInstagram,
   FaGlobe,
@@ -11,11 +10,6 @@ import {
   FaChartBar,
   FaFileAlt,
   FaCrown,
-  FaBaseballBall,
-  FaFutbol,
-  FaBasketballBall,
-  FaVolleyballBall,
-  FaTableTennis,
 } from "react-icons/fa";
 
 const LandingPage: React.FC = () => {
@@ -23,6 +17,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex justify-center bg-[#F3F3F3]">
+      
       {/* MOBILE FRAME */}
       <div
         className="relative w-[390px] min-h-screen overflow-y-auto pb-[120px]"
@@ -39,42 +34,27 @@ const LandingPage: React.FC = () => {
         {/* CONTENT */}
         <div className="relative px-[20px] pt-[24px]">
           
-
-          {/* 🔥 SPORTS QUICK ACCESS BAR */}
-          <div className="mt-[18px]">
-            <div className="flex gap-[15px] overflow-x-auto no-scrollbar pb-[6px]">
-              <SportTile active icon={<FaBaseballBall />} label="CRICKET" onClick={() => navigate("/live-scores")} />
-              <SportTile icon={<FaFutbol />} label="FUTSAL" onClick={() => navigate("/live-scores")} />
-              <SportTile icon={<FaBasketballBall />} label="BASKETBALL" onClick={() => navigate("/live-scores")} />
-              <SportTile icon={<FaVolleyballBall />} label="VOLLEYBALL" onClick={() => navigate("/live-scores")} />
-              <SportTile icon={<FaTableTennis />} label="TABLE TENNIS" onClick={() => navigate("/live-scores")} />
-            </div>
-          </div>
-
-          {/* LOGO */}
-          <div className="flex justify-center">
+          {/* LOGO + TAGLINE (NOW AT TOP) */}
+          <div className="flex flex-col items-center mt-[24px]">
             <img
-              src="/ghs_carnival_logo.png"
+              src="/ghs-carnival-logo.png"
               alt="GHS Carnival Logo"
-              className="h-[100px] object-contain mt-[30vh]"
+              className="h-[90px] object-contain"
             />
-          </div>
-          
 
-          {/* TAGLINE */}
-          <h1
-            className="text-[#232165] text-center font-medium mt-[12px]"
-            style={{
-              fontFamily: "'Kdam Thmor Pro', sans-serif",
-              fontSize: "20px",
-              paddingBottom: "50vh",
-            }}
-          >
-            Games, Glory & Hostel Stories
-          </h1>
+            <h1
+              className="text-[#232165] text-center font-medium mt-[10px]"
+              style={{
+                fontFamily: "'Kdam Thmor Pro', sans-serif",
+                fontSize: "20px",
+              }}
+            >
+              Games, Glory & Hostel Stories
+            </h1>
+          </div>
 
           {/* HERO IMAGE */}
-          <div className="mt-[20px] flex justify-center">
+          <div className="mt-[28px] flex justify-center">
             <img
               src="/ghs.png"
               alt="GHS Carnival"
@@ -106,8 +86,6 @@ const LandingPage: React.FC = () => {
             with jaw-dropping cultural performances and thrilling sporting events
             by our very own students.
           </p>
-
-          
 
           {/* EVENT GALLERY */}
           <h3 className="mt-[28px] text-center text-[#FF8736] text-[26px] font-semibold">
@@ -143,7 +121,7 @@ const LandingPage: React.FC = () => {
                 <span>Guidelines / Rulebook</span>
               </div>
 
-              <div 
+              <div
                 onClick={() => navigate("/live-scores")}
                 className="flex items-center gap-[12px] cursor-pointer hover:text-[#FF8736]"
               >
@@ -154,14 +132,24 @@ const LandingPage: React.FC = () => {
           </div>
         </div>
 
-        <NavBar />
+        {/* FIXED BOTTOM NAV */}
+        <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] bg-white border-t py-[10px] z-50">
+          <div className="flex justify-around text-[11px] text-gray-500">
+            <NavItem icon={<FaHome />} label="Home" active onClick={() => navigate("/")} />
+            <NavItem icon={<FaInfoCircle />} label="About" onClick={() => navigate("/about")} />
+            <NavItem icon={<FaCrown />} label="Block Captains" onClick={() => navigate("/hostel-blocks")} />
+            <NavItem icon={<FaChartBar />} label="Live Scores" onClick={() => navigate("/live-scores")} />
+            <NavItem icon={<FaFileAlt />} label="Guidelines" onClick={() => navigate("/guidelines")} />
+            <NavItem icon={<FaUsers />} label="Dev Team" onClick={() => navigate("/teams")} />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-/* 🔹 SPORT TILE COMPONENT (With Hover & Transitions) */
-const SportTile = ({
+/* 🔹 BOTTOM NAV ITEM */
+const NavItem = ({
   icon,
   label,
   active = false,
@@ -174,15 +162,14 @@ const SportTile = ({
 }) => (
   <div
     onClick={onClick}
-    className={`min-w-[69px] h-[69px] rounded-[18px] flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-200 active:scale-95 ${
-      active
-        ? "bg-gradient-to-br from-[#FFB703] to-[#FF8736] shadow-md text-white"
-        : "bg-[#E6E6E6] text-[#2F2F2F] hover:text-[#FF8736] hover:bg-[#efefef]"
+    className={`flex flex-col items-center cursor-pointer transition-colors duration-200 ${
+      active ? "text-[#FF8736]" : "text-gray-500 hover:text-[#FF8736]"
     }`}
   >
-    <div className="text-[26px]">{icon}</div>
-    <span className="mt-[6px] text-[11px] font-semibold">{label}</span>
+    <div className="text-[18px]">{icon}</div>
+    {label}
   </div>
 );
 
 export default LandingPage;
+
