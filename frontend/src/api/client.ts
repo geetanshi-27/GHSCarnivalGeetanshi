@@ -59,7 +59,7 @@ async function fetchAPI<T>(endpoint: string, options?: RequestInit): Promise<T> 
     if (['POST', 'PATCH', 'PUT', 'DELETE'].includes(method)) {
       const csrfToken = getCSRFToken();
       if (csrfToken) {
-        headers['X-CSRF-Token'] = csrfToken;
+        (headers as Record<string, string>)['X-CSRF-Token'] = csrfToken;
       }
     }
 

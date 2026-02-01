@@ -59,11 +59,11 @@ export default function AdminDashboard() {
     buttonLogout: 'text-red-500 border border-red-500/20 hover:bg-red-500 hover:text-white'
   };
 
-  const loadMatches = async (token: string, sportId?: string) => {
+  const loadMatches = async (sportId?: string) => {
     setLoadingMatches(true);
     setError(null);
     try {
-      const response = await api.admin.getMatches(token, sportId ? { sport_id: sportId } : {});
+      const response = await api.admin.getMatches(sportId ? { sport_id: sportId } : {});
       setMatches(response.items);
     } catch (err) {
       console.error('Failed to load matches:', err);
@@ -335,7 +335,7 @@ export default function AdminDashboard() {
                       value={filterSportId}
                       onChange={async (e) => {
                         setFilterSportId(e.target.value);
-                        await loadMatches(e.target.value || undefined);
+                        await loadMatches(e.target.value || '');
                       }}
                     >
                       <option value="">All Sports</option>
