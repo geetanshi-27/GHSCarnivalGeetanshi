@@ -93,26 +93,26 @@ const LandingPage: React.FC = () => {
           </p>
 
           {/* EVENT GALLERY */}
-          <h3 className="mt-[28px] md:mt-[40px] lg:mt-[60px] text-center text-[#FF8736] text-[26px] md:text-[36px] lg:text-[48px] xl:text-[56px] font-semibold">
+          <h3 className="mt-[18px] md:mt-[26px] lg:mt-[36px] text-center text-[#FF8736] text-[22px] md:text-[28px] lg:text-[36px] xl:text-[42px] font-semibold">
             Event Gallery
           </h3>
 
-          <div className="mt-[14px] md:mt-[24px] lg:mt-[36px] grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-[10px] md:gap-[14px] lg:gap-[18px] xl:gap-[24px] max-w-full mx-auto">
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300 hidden md:block" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300 hidden lg:block" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300 hidden lg:block" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300 hidden xl:block" />
-            <div className="h-[72px] md:h-[100px] lg:h-[140px] xl:h-[160px] rounded-[12px] bg-gray-300 hidden xl:block" />
+          <div className="mt-[10px] md:mt-[16px] lg:mt-[24px] grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-[8px] md:gap-[12px] lg:gap-[14px] xl:gap-[18px] max-w-full mx-auto">
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300 hidden md:block" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300 hidden lg:block" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300 hidden lg:block" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300 hidden xl:block" />
+            <div className="h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] rounded-[10px] bg-gray-300 hidden xl:block" />
           </div>
 
           {/* QUICK LINKS */}
-          <div className="mt-[28px] md:mt-[40px] lg:mt-[60px] mb-[100px] md:mb-[120px] lg:mb-[150px] bg-white rounded-[20px] shadow-lg px-[18px] md:px-[32px] lg:px-[48px] xl:px-[64px] py-[18px] md:py-[32px] lg:py-[48px] max-w-[900px] mx-auto">
-            <h4 className="text-[18px] md:text-[22px] lg:text-[28px] xl:text-[32px] font-bold mb-[14px] md:mb-[24px] lg:mb-[32px]">Quick Links</h4>
+          <div className="mt-[18px] md:mt-[28px] lg:mt-[36px] mb-[100px] md:mb-[120px] lg:mb-[150px] bg-white rounded-[16px] shadow-lg px-[14px] md:px-[24px] lg:px-[36px] xl:px-[48px] py-[14px] md:py-[20px] lg:py-[32px] max-w-[800px] mx-auto">
+            <h4 className="text-[16px] md:text-[18px] lg:text-[22px] xl:text-[26px] font-bold mb-[12px] md:mb-[16px] lg:mb-[24px]">Quick Links</h4>
 
-            <div className="space-y-[14px] md:space-y-[20px] lg:space-y-[28px] text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-semibold">
+            <div className="space-y-[10px] md:space-y-[14px] lg:space-y-[18px] text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-semibold">
               <a
                 href="https://www.instagram.com/ghs.carnival_muj/"
                 target="_blank"
