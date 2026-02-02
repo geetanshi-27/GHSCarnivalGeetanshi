@@ -1,5 +1,10 @@
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
+// Debug: Log API base URL in development
+if (import.meta.env.DEV) {
+  console.log('API_BASE:', API_BASE);
+}
+
 export interface Sport {
   id: string;
   name: string;

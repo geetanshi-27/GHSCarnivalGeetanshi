@@ -73,6 +73,7 @@ async def on_shutdown() -> None:
 
 
 @app.get("/")
+@app.head("/")
 async def root():
     """Root endpoint redirect"""
     return {"message": "GHS Carnival API", "docs": "/docs", "health": "/api/health"}
