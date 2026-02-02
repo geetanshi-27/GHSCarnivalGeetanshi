@@ -72,4 +72,4 @@ async def on_shutdown() -> None:
     scheduler.shutdown()
 
 
-app.include_router(api_router)
+app.include_router(api_router, prefix="/api")
