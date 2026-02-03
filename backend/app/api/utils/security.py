@@ -1,6 +1,7 @@
 """Authentication and authorization utilities"""
 from __future__ import annotations
 
+import logging
 import os
 from datetime import datetime, timedelta
 from typing import Optional
@@ -11,6 +12,8 @@ from fastapi import Depends, HTTPException, status, Request
 from dotenv import load_dotenv
 
 from app.db.prisma import prisma
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -85,9 +88,13 @@ async def get_current_user(request: Request):
     token = request.cookies.get("access_token")
     
     if not token:
+        # Log at DEBUG level to avoid performance issues on frequent auth failures
+        if logger.isEnabledFor(logging.DEBUG):
+            user_agent = request.headers.get("user-agent", "unknown")
+            logger.debug(f"No access token cookie. User-Agent: {user_agent}, Cookies: {list(request.cookies.keys())}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Not authenticated",
+            detail="Not authenticated - no token cookie",
         )
     
     # Decode token and extract user ID

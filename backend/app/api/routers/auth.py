@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import secrets
 import time
 from typing import Dict, Tuple
@@ -18,6 +19,7 @@ from app.api.utils.security import (
 )
 
 router = APIRouter(prefix="/auth", tags=["auth"])
+logger = logging.getLogger(__name__)
 
 # Simple in-memory backoff for failed logins.
 # Note: This is best-effort for single-process deployments and dev; for production,
@@ -113,6 +115,11 @@ async def login(credentials: LoginRequest, request: Request, response: Response)
     # Clear failed-login backoff on success
     ip = _client_ip(request)
     _FAILED_LOGINS.pop(ip, None)
+    
+    # Log user agent at DEBUG level for troubleshooting iOS issues
+    if logger.isEnabledFor(logging.DEBUG):
+        user_agent = request.headers.get("user-agent", "unknown")
+        logger.debug(f"Login: {user.email} | UA: {user_agent}")
     
     # Set HttpOnly cookie with JWT
     response.set_cookie(

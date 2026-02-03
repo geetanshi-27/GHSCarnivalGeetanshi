@@ -210,7 +210,8 @@ async def list_admin_matches(
     matches = await prisma.match.find_many(
         where=where_clause,
         include={"sport": True},
-        order={"updatedAt": "desc"}
+        order=[{"status": "asc"}, {"updatedAt": "desc"}],  # LIVE first for admins
+        take=200  # Limit to prevent excessive data transfer
     )
     
     return {"items": matches}
@@ -275,13 +276,10 @@ async def delete_announcement(
 ) -> dict:
     """Delete an announcement (SUPER_ADMIN only)"""
     
-    announcement = await prisma.announcement.find_unique(
-        where={"id": announcement_id}
-    )
-    if announcement is None:
+    try:
+        await prisma.announcement.delete(where={"id": announcement_id})
+    except Exception:
         raise HTTPException(status_code=404, detail="Announcement not found")
-    
-    await prisma.announcement.delete(where={"id": announcement_id})
     
     return {"message": "Announcement deleted successfully"}
 

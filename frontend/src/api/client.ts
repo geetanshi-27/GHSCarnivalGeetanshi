@@ -72,6 +72,15 @@ async function fetchAPI<T>(endpoint: string, options?: RequestInit): Promise<T> 
       }
     }
 
+    // Debug logging for development
+    if (import.meta.env.DEV) {
+      console.log(`API Request: ${method} ${endpoint}`, {
+        credentials: 'include',
+        csrfToken: getCSRFToken() ? 'present' : 'missing',
+        cookies: document.cookie
+      });
+    }
+
     const response = await fetch(`${API_BASE}${endpoint}`, {
       ...options,
       credentials: 'include', // Include cookies
@@ -89,12 +98,22 @@ async function fetchAPI<T>(endpoint: string, options?: RequestInit): Promise<T> 
       } catch {
         // If response is not JSON, use status text
       }
+      
+      // Log detailed error info for debugging
+      console.error('API Error:', {
+        endpoint,
+        status: response.status,
+        message: errorMessage,
+        headers: Object.fromEntries(response.headers.entries())
+      });
+      
       throw new Error(errorMessage);
     }
 
     return response.json();
   } catch (error) {
     // Network errors or other fetch failures
+    console.error('Fetch error:', error);
     if (error instanceof Error) {
       throw error;
     }
