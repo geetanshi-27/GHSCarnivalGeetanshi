@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <>
-      <div className="pb-24">
+      <div className="pb-14 md:pb-24">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/live-scores" element={<LiveScoresPage />} />

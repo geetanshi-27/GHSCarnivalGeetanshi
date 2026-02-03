@@ -6,7 +6,16 @@ export default function ComingSoonPage() {
         style={{ backgroundImage: 'url(/Background.png)' }}
       />
 
-      <div className="relative flex min-h-screen items-center justify-center py-14">
+      <header className="relative z-20 py-2 flex justify-center">
+        <img 
+          src="/ghs_carnival_logo.png"
+          alt="GHS Carnival logo"
+          className="h-12 md:h-14 w-auto object-contain drop-shadow-lg"
+        />
+      </header>
+      <div className="relative flex min-h-screen items-center justify-center py-14" style={{
+        marginTop: "-4rem"
+      }}>
         <div className="mx-auto w-full max-w-2xl text-center font-kdam">
           <img
             src="/ghs_carnival_logo.png"
