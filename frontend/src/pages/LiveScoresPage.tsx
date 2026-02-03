@@ -108,10 +108,10 @@ export default function LiveScoresPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[url('/Background.png')] bg-center bg-cover bg-no-repeat bg-fixed bg-white font-[system-ui,sans-serif]">
-        <div className="max-w-[920px] mx-auto">
-          <header className="pt-5 px-20 pb-2">
-            <img src="/ghs_carnival_logo.png" alt="GHS Carnival" className="max-w-[280px] block" />
+        <header className="py-2 flex justify-center">
+            <img src="/ghs_carnival_logo.png" alt="GHS Carnival" className="h-12 md:h-14 w-auto object-contain" />
           </header>
+        <div className="max-w-[920px] mx-auto">          
           <div className="p-4 text-center text-gray-500">Loading sports data...</div>
         </div>
       </div>
@@ -121,10 +121,10 @@ export default function LiveScoresPage() {
   if (error || sports.length === 0) {
     return (
       <div className="min-h-screen bg-[url('/Background.png')] bg-center bg-cover bg-no-repeat bg-fixed bg-white font-[system-ui,sans-serif]">
-        <div className="max-w-[920px] mx-auto">
-          <header className="pt-5 px-20 pb-2">
-            <img src="/ghs_carnival_logo.png" alt="GHS Carnival" className="max-w-[280px] block" />
-          </header>
+        <header className="py-2 flex justify-center">
+            <img src="/ghs_carnival_logo.png" alt="GHS Carnival" className="h-12 md:h-14 w-auto object-contain" />
+        </header>
+        <div className="max-w-[920px] mx-auto">         
           <div className="p-4 text-center">
             <p className="text-red-500 mb-4">{error || 'No sports available yet'}</p>
             <p className="text-sm text-gray-500">Please check back later or contact the admin.</p>
@@ -136,10 +136,10 @@ export default function LiveScoresPage() {
 
   return (
     <div className="min-h-screen bg-[url('/Background.png')] bg-center bg-cover bg-no-repeat bg-fixed bg-white font-[system-ui,sans-serif]">
-      <div className="max-w-[920px] mx-auto">
-        <header className="pt-5 px-20 pb-2">
-          <img src="/ghs_carnival_logo.png" alt="GHS Carnival" className="max-w-[280px] block" />
+      <header className="py-2 flex justify-center">
+            <img src="/ghs_carnival_logo.png" alt="GHS Carnival" className="h-12 md:h-14 w-auto object-contain" />
         </header>
+      <div className="max-w-[920px] mx-auto">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-3 px-4 mt-1 max-[420px]:grid-cols-3 max-[420px]:gap-2 min-[1280px]:grid-cols-[repeat(6,minmax(110px,1fr))] min-[1280px]:gap-[14px]">
           {sports.map((s) => (
             <button

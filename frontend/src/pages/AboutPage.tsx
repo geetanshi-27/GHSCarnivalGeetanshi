@@ -34,13 +34,13 @@ const AboutPage: React.FC = () => {
       />
 
       {/* Logo in Top Left */}
-      <div className="absolute top-6 left-6 md:left-16 z-20">
+      <header className="py-2 flex justify-center relative z-20">
         <img 
           src="/ghs_carnival_logo.png" 
           alt="GHS Carnival Logo" 
-          className="h-14 md:h-20 w-auto object-contain drop-shadow-lg"
+          className="h-14 md:h-16 w-auto object-contain drop-shadow-lg"
         />
-      </div>
+      </header>
 
       {/* 1. Header & Description Section */}
       <section className="max-w-4xl mx-auto pt-28 md:pt-40 px-6 text-center">

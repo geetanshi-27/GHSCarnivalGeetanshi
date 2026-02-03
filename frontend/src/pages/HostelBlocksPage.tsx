@@ -64,13 +64,14 @@ export default function HostelBlocksPage(): JSX.Element {
       <div className="absolute inset-0 bg-[#f3efe9]/70 z-0" />
 
       {/* Header */}
-      <div className="relative z-10 flex flex-col items-center pt-6 pb-4">
+      <header className="relative z-10 py-2 flex justify-center">
         <img
           src="/ghs_carnival_logo.png"
           alt="GHS Carnival"
-          className="h-20 object-contain"
+          className="h-12 md:h-14 w-auto object-contain"
         />
-
+      </header>
+      <div className="relative z-10 flex flex-col items-center pb-4">
         <p className="mt-2 mb-2 text-xl font-medium tracking-[0.3em] text-center bg-gradient-to-r from-[#e6b980] to-[#c78bf4] bg-clip-text text-transparent font-heading">
           BLOCK CAPTAINS
         </p>

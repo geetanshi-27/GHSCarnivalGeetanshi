@@ -36,6 +36,13 @@ export default function GuidelinesPage() {
       {/* CONTENT */}
       <div className="relative z-10 w-full max-w-[900px] px-[20px] md:px-[40px] lg:px-[80px] xl:px-[120px] pt-[40px] md:pt-[60px] lg:pt-[100px]">
         {/* HEADER */}
+        <header className="py-2 flex justify-center mb-4">
+          <img 
+            src="/ghs_carnival_logo.png" 
+            alt="GHS Carnival logo"
+            className="h-12 md:h-14 w-auto object-contain"
+          />
+        </header>
         <div className="flex flex-col items-center text-center">
           <div className="mb-[20px] md:mb-[30px] lg:mb-[40px] animate-float-once">
             <FaFileAlt className="text-[48px] md:text-[64px] lg:text-[80px] text-[#FF8736] mx-auto" />
